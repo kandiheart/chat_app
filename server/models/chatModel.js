@@ -1,0 +1,5 @@
+chatName
+isGroupChat
+latestMessage
+groupAdmin
+Users
