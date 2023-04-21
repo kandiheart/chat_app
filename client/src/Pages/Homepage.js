@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import { Container, Box, Text, Tabs, Tab, TabPanels, TabList, TabPanel, AbsoluteCenter } from '@chakra-ui/react';
 import Login from "../components/Auth/Login";
 import Signup from "../components/Auth/Signup";
 
 const Homepage = () => {
+    const history = useNavigate();
+
+    useEffect(()=>{
+        const user = JSON.parse(localStorage.getItem("userInfo"));
+
+        if(user){
+            history('/');
+        }
+    }, [history]);
+
     return <AbsoluteCenter w={"50%"} h={"50%"}>
     <Container maxW="xl" centerContent>
         <Box display="flex" justifyContent="center" p={3} bg={"white"} w="100%" m="40px 0 15px 0" borderRadius="lg" borderWidth="1px">
