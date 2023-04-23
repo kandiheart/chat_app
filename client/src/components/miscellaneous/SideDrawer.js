@@ -23,7 +23,7 @@ import {
 
 const SideDrawer = () => {
     const [search, setSearch] = useState("");
-    const [searchResult, setSearchResult] = useState([]);//?????
+    const [searchResult, setSearchResult] = useState([]);
     const [loading, setLoading] = useState(false);
     const [loadingChat, setLoadingChat] = useState();
 
@@ -58,7 +58,6 @@ const SideDrawer = () => {
                 },
             };
 
-            /// try is failing here
             const {data} = await axios.get(`/api/user?search=${search}`, config);
             setLoading(false);
             setSearchResult(data);
