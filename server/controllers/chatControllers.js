@@ -17,9 +17,9 @@ const accessChat = asyncHandler(async(req,res)=>{
             { users: { $elemMatch: { $eq: userId } } },
         ],
     }).populate("users", "-password")
-        /* .populate("latestMessage") */;
+        .populate("latestMessage");
     isChat = await User.populate(isChat,{
-        path: "",
+        path: 'latestMessage.sender',
         select: "name pic email",
     });
     /* path: 'latestMessage.sender', */
@@ -48,7 +48,7 @@ const fetchChats = asyncHandler(async(req,res)=>{
         Chat.find({ users: { $elemMatch: { $eq: req.user._id } } })
         .populate("users", "-password")
         .populate("groupAdmin", "-password")
-        /* .populate("lastestMessage") */
+        .populate("latestMessage")
         .sort({ updatedAt: -1 })
         .then(async(results)=>{
             results = await User.populate(results, {
