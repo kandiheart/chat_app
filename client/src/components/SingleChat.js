@@ -7,7 +7,7 @@ import ProfileModal from '../components/miscellaneous/ProfileModal';
 import UpdateGroupChatModal from './miscellaneous/UpdateGroupChatModal';
 import ScrollableChat from './ScrollableChat';
 import axios from 'axios';
-import {  } from 'react-lottie-player'
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import io from 'socket.io-client';
 const ENDPOINT = "http://localhost:5000";
@@ -153,7 +153,9 @@ const SingleChat = ({fetchAgain, setFetchAgain})=>{
                                 </div>
                             )}
                             <FormControl onKeyDown={sendMessage} isRequired mt={3}>
-                                {isTyping?<div>Loading...</div>:<></>}
+                                {isTyping?<Player autoplay loop src={"https://assets10.lottiefiles.com/packages/lf20_nZBVpi.json"}
+                                    style={{height: "50px", width: "70px", marginBottom: 10, marginLeft: 0}}>
+                                    <Controls visible={false}/></Player>:<></>}
                                 <Input variant={"filled"} bg={"#E0E0E0"} placeholder='Enter a message...' onChange={typingHandler} value={newMessage} />
                             </FormControl>
                     </Box>
