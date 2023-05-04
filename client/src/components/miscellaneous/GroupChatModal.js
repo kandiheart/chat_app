@@ -124,7 +124,7 @@ const GroupChatModal = ({children})=>{
     <Modal  size={"lg"} isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-            <ModalHeader fontSize="40px" display="flex" justifyContent="center">Create Group Chat</ModalHeader>
+            <ModalHeader fontSize="40px" display="flex" justifyContent="center" fontFamily={'Orbitron'}>Create Group Chat</ModalHeader>
             <ModalCloseButton />
             <ModalBody display="flex" flexDir="column" alignItems="center">
                 <FormControl>
